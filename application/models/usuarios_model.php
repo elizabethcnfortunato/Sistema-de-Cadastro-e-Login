@@ -1,0 +1,15 @@
+<?php
+class Usuarios_model extends CI_Model {
+	//PASSO 1 - Fazer o insert no BD;
+	public function salva($usuario){
+		$this->db->insert("usuarios",$usuario);
+	}
+
+	public function buscaPorEmailESenha($email,$senha){
+		$this->db->where("email",$email);
+		$this->db->where("senha",$senha);
+		$usuario = $this->db->get("usuarios")->row_array();
+		return $usuario;
+	}
+}
+//PASSO 2 - Enviar os dados para view.
