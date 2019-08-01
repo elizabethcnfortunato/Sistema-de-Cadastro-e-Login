@@ -32,26 +32,40 @@ class Produtos extends CI_Controller{
 	}
 
 	public function novo(){
-		$usuarioLogado  = $this->session->userdata("usuario_logado");
-		$produto = array(
-			"nome" => $this->input->post("nome"),
-			"descricaotext" => $this->input->post("descricao"),
-			"preco" => $this->input->post("preco"),
-			"id_usuario" => $usuarioLogado["id"]
 	
-		);
+		$this->load->library("form_validation");
+		$this->form_validation->set_rules("nome","nome","required|min_length[5]");
+		$this->form_validation->set_rules("descricao","descricao","trim|required|min_length[10]");
+		$this->form_validation->set_rules("preco","preco","required");
+		$this->form_validation->set_error_delimiters("<p class='alert alert-danger'>","</p>");
+		$sucesso = $this->form_validation->run();
 
-		$this->load->model("produtos_model");
-		$this->produtos_model->salva($produto);
+		if($sucesso){
 
-		$msg = "<div class='alert alert-sucess'> Produto Registrado com Sucesso.</div>";
-		$this->session->set_flashdata("success", $msg);
-		redirect("/");
+			$usuarioLogado  = $this->session->userdata("usuario_logado");
+			$produto = array(
+				"nome" => $this->input->post("nome"),
+				"descricaotext" => $this->input->post("descricao"),
+				"preco" => $this->input->post("preco"),
+				"id_usuario" => $usuarioLogado["id"]
+	
+			);
+
+			$this->load->model("produtos_model");
+			$this->produtos_model->salva($produto);
+
+			$msg = "<div class='alert alert-sucess'> Produto Registrado com Sucesso.</div>";
+			$this->session->set_flashdata("success", $msg);
+			redirect("/");
+		}else{
+			$this->load->view("produtos/formulario");
+		}
 	}
 
-	public function mostra(){
+	public function mostra($id){
+		$this->load->helper("typography");
 		//vemdo banco
-		$id = $this->input->get("id");
+		//$id = $this->input->get("id");
 		$this->load->model("produtos_model");
 		$produto = $this->produtos_model->busca($id);
 		$dados = array("produto" => $produto);

@@ -9,7 +9,7 @@
 				<tr>
 					<td><?= returnIDCorrigido($produto["id"])?>
 					<td><?= $produto["nome"]?></td>
-					<td><?= $produto["descricaotext"]?></td>
+					<td><?= auto_typography(html_escape($produto["descricaotext"]))?></td>
 					<td><?= $produto["preco"]?></td>
 					<td><?= $produto["id_usuario"]?></td>
 				</tr>

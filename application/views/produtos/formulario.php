@@ -5,6 +5,7 @@
 	<body>
 		<div class="container">
 			<h1>Cadastro de Novo Produto</h1>
+
 			<?php 
 				echo form_open("produtos/novo"); 
 
@@ -13,24 +14,31 @@
 					"name" => "nome",
 					"class" => "form-control",
 					"id" => "nome",
-					"maxlength" => "255"
+					"maxlength" => "255",
+					"value"=>set_value("nome","")
 					));
-
-				echo form_label("Preco","preco");
+			
+					echo form_error("nome");
+				
+					echo form_label("Preco","preco");
 				echo form_input(array(
 					"name" => "preco",
 					"class" => "form-control",
 					"id" => "preco",
 					"maxlength" => "255",
-					"type" => "number"
+					"type" => "number",
+					"value" =>set_value("preco","")
 					));
-
+					echo form_error("preco");
 				echo form_textarea(array(
 					"name" => "descricao",
 					"class" => "form-control",
-					"id"=>"descricao"
+					"id"=>"descricao",
+					"value" => set_value("descricao","")
+					
 				));
 
+				echo form_error("preco");
 
 				echo form_button(array(
 					"class"=>"btn btn-primary",

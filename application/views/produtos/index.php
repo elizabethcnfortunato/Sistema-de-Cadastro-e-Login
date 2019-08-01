@@ -17,7 +17,7 @@
 					<tr>
 						<!-- listar todos os produtos q vêem do controler-->
 						<td><?= returnIDCorrigido($produto['id']) ?>
-						<td><?= anchor("produtos/mostra?id={$produto['id']}",$produto["nome"])?></td>
+						<td><?= anchor("produtos/mostra/{$produto['id']}",$produto["nome"])?></td>
 						<td><?= $produto["nome"]?></td>
 						<td><?= numeroEmReais($produto["preco"])?></td>
 					</tr>
