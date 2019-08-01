@@ -48,4 +48,15 @@ class Produtos extends CI_Controller{
 		$this->session->set_flashdata("success", $msg);
 		redirect("/");
 	}
+
+	public function mostra(){
+		//vemdo banco
+		$id = $this->input->get("id");
+		$this->load->model("produtos_model");
+		$produto = $this->produtos_model->busca($id);
+		$dados = array("produto" => $produto);
+		$this->load->view("produtos/mostra",$dados);
+	}
 }
+
+

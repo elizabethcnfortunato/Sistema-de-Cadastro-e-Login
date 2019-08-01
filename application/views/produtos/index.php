@@ -16,6 +16,8 @@
 				<?php foreach ($produtos as $produto):?>
 					<tr>
 						<!-- listar todos os produtos q vêem do controler-->
+						<td><?= returnIDCorrigido($produto['id']) ?>
+						<td><?= anchor("produtos/mostra?id={$produto['id']}",$produto["nome"])?></td>
 						<td><?= $produto["nome"]?></td>
 						<td><?= numeroEmReais($produto["preco"])?></td>
 					</tr>
@@ -113,3 +115,14 @@
 		</div>
 	</body>
 </html>
+
+<?php 
+function returnIDCorrigido($par){
+	if($par <10){
+		$a = "0".$par;
+   }else{
+		$a = $par;
+   }
+   return $a;
+}
+?>
