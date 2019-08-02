@@ -47,6 +47,7 @@
 				));
 
 				echo form_close();
+				
 			?>
 		</div>
 	</body>

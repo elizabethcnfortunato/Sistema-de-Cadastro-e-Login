@@ -74,7 +74,8 @@ class Produtos extends CI_Controller{
 
 	public function nao_tenho_palavra_melhor($string){
 		$posicao = strpos($string, "melhor");
-		if($posicao != FALSE){
+		echo $posicao;
+		if($posicao ===  FALSE){
 			return TRUE;
 		}else{
 			$this->form_validation->set_message("nao_tenho_palavra_melhor","O campo '%s' não pode conter a palavra MELHOR");
