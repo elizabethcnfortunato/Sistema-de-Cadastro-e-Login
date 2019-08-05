@@ -1,9 +1,4 @@
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="<?= base_url("css/bootstrap.css")?>">
-	</head>
-	<body>
-		<div class="container">
+
 			<h1>Apresentação do Produto</h1>
 			<table class = "table">
 				<tr>
@@ -47,9 +42,7 @@
 
 			echo form_close();
 			?>
-		</div>
-	</body>
-</html>
+
 <?php
 function returnIDCorrigido($par){
 	if($par <10){

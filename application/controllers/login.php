@@ -11,16 +11,16 @@ class Login extends CI_Controller{
 			$this->session->set_userdata("usuario_logado", $usuario);
 
 			//sessão temporária
-			$msg = "Logado com sucesso.";
+			$msg = "Ebaaa, Você voltouuu!   =D ";
 			$this->session->set_flashdata("success",$msg);
 		}else{
 			//sessão temporária
 			$msg = "Senha ou Usuário incorreto. Por favor tente novamente.";
 			$this->session->set_flashdata("danger", $msg);
 		}
-
+		
 		//redirecionamento de página, para a index.
-		$this->load->view("login/autenticar", $dados);
+		$this->load->template("login/autenticar", $dados);
 
 		redirect('/');
 
@@ -28,7 +28,7 @@ class Login extends CI_Controller{
 
 	public function logout(){
 		$this->session->unset_userdata("usuario_logado");
-		$msg = "Você foi deslogado";
+		$msg = "Você foi deslogado. Obrigada e volte sempre =]";
 		$this->session->set_flashdata("success", $msg);
 		redirect('/');
 	}

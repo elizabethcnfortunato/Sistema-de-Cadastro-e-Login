@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">	
 	</head>
 	<body>
-		<p>Deslogado com sucesso!!!</p>
+		<h1>Deslogado com sucesso!!!</h1>
+		<p>Obrigada e volte sempre =)</p>
 	</body>
 </html>

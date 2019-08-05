@@ -26,6 +26,6 @@ class Usuarios extends CI_controller{
 		
 		//PASSO3 - Salvar os dados
 		$this->usuarios_model->salva($usuario);
-		$this->load->view("usuarios/novo");
+		$this->load->template("usuarios/novo");
 	}
 }

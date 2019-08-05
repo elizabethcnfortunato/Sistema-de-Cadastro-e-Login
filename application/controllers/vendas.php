@@ -45,7 +45,7 @@ class Vendas extends CI_Controller{
 		$this->email->message($conteudo);		
 		$this->email->send();
 
-		$this->load->view("vendas/email.php",$dados);
+		$this->load->template("vendas/email.php",$dados);
 		$this->session->set_flashdata('success',"Pedido Realizado com Sucesso.");
 		redirect("/");
 	}
