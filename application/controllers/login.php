@@ -11,11 +11,11 @@ class Login extends CI_Controller{
 			$this->session->set_userdata("usuario_logado", $usuario);
 
 			//sessão temporária
-			$msg = "<div class='alert alert-success'> Logado com sucesso.</div>";
+			$msg = "Logado com sucesso.";
 			$this->session->set_flashdata("success",$msg);
 		}else{
 			//sessão temporária
-			$msg = "<div class='alert alert-danger'> Senha ou Usuário incorreto. Por favor tente novamente.</div>";
+			$msg = "Senha ou Usuário incorreto. Por favor tente novamente.";
 			$this->session->set_flashdata("danger", $msg);
 		}
 
@@ -28,7 +28,7 @@ class Login extends CI_Controller{
 
 	public function logout(){
 		$this->session->unset_userdata("usuario_logado");
-		$msg = "<div class='alert alert-warning'> Você foi deslogado</div>";
+		$msg = "Você foi deslogado";
 		$this->session->set_flashdata("success", $msg);
 		redirect('/');
 	}

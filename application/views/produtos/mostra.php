@@ -7,11 +7,18 @@
 			<h1>Apresentação do Produto</h1>
 			<table class = "table">
 				<tr>
-					<td><b>ID:</b><?= returnIDCorrigido($produto["id"])?>
-					<td><b>Nome:</b><?= " ".$produto["nome"]?></td>
-					<td><b>Descrição:</b><?= auto_typography(html_escape($produto["descricaotext"]))?></td>
-					<td><b>Preço:</b><?=" ".$produto["preco"]?></td>
-					<td><b>ID_Usuário</b><?= $produto["id_usuario"]?></td>
+					<th><b>ID</b>
+					<th><b>Nome</b></th>
+					<th><b>Descrição</th>
+					<th><b>Preço</b></th>
+					<th><b>ID_Usuário</b></th>
+				</tr>
+				<tr>
+					<td><?= returnIDCorrigido($produto["id"])?></td>
+					<td><?= " ".$produto["nome"]?></td>
+					<td><?= auto_typography(html_escape($produto["descricaotext"]))?></td>
+					<td><?=" ".$produto["preco"]?></td>
+					<td><?= $produto["id_usuario"]?></td>
 				</tr>
 			</table>	
 			<br>

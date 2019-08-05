@@ -11,5 +11,10 @@ class Usuarios_model extends CI_Model {
 		$usuario = $this->db->get("usuarios")->row_array();
 		return $usuario;
 	}
+
+	public function busca($id){
+		$this->db->where("id",$id);
+		return $this->db->get("usuarios")->row_array();
+	}
 }
-//PASSO 2 - Enviar os dados para view.
+
