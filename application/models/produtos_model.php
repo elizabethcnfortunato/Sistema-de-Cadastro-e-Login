@@ -24,7 +24,6 @@ class Produtos_model extends CI_Model{
 	public function salva($produto){
 		$this->db->insert("produtos",$produto);
 	}
-<<<<<<< HEAD
 
 	//busca os produtos vendidos por um $usuario especifico
 	public function buscaVendidos($usuario){
@@ -35,6 +34,4 @@ class Produtos_model extends CI_Model{
 		$this->db->where("id_usuario",$id);
 		return $this->db->get()->result_array();
 	}
-=======
->>>>>>> 4a71eb9405611bd1c59c63f46bfddb29205eade0
 }
