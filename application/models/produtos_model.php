@@ -25,10 +25,13 @@ class Produtos_model extends CI_Model{
 		$this->db->insert("produtos",$produto);
 	}
 
+	//busca os produtos vendidos por um $usuario especifico
 	public function buscaVendidos($usuario){
 		$id = $usuario["id"];
+		$this->db->from("produtos");
+		$this->db->join("vendas","vendas.produto_id = produtos.id");
 		$this->db->where("vendido",true);
 		$this->db->where("id_usuario",$id);
-		$this->db->get("produtos")->result_array();
+		return $this->db->get()->result_array();
 	}
 }
