@@ -28,11 +28,14 @@ class Produtos extends CI_Controller{
 	}
 
 	public function formulario(){
+<<<<<<< HEAD
 		$usuarioLogado = $this->session->userdata("usuario_logado");
 		if(!$usuarioLogado){
 			$this->session->set_flashdata("danger","Você precisa se logar");
 			redirect("/");
 		}
+=======
+>>>>>>> 4a71eb9405611bd1c59c63f46bfddb29205eade0
 		$this->load->view("produtos/formulario");
 	}
 

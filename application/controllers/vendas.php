@@ -3,10 +3,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Vendas extends CI_Controller{
+<<<<<<< HEAD
 
 	public function nova(){
 		$usuario = $this->session->userdata("usuario_logado");
 		//sempre antes de usar o Helper na View, precisa importar ele.
+=======
+	public function nova(){
+		$usuario = $this->session->userdata("usuario_logado");
+>>>>>>> 4a71eb9405611bd1c59c63f46bfddb29205eade0
 		$this->load->helper("date_helper");
 		$this->load->model("vendas_model");
 		$venda = array(
@@ -18,6 +23,7 @@ class Vendas extends CI_Controller{
 		$this->session->set_flashdata("success",$msg);
 		redirect("/");
 	}
+<<<<<<< HEAD
 
 	public function index(){
 		/**
@@ -47,6 +53,8 @@ class Vendas extends CI_Controller{
 			"id"=>$id
 		))->row_array();
 	}
+=======
+>>>>>>> 4a71eb9405611bd1c59c63f46bfddb29205eade0
 }
 
 
