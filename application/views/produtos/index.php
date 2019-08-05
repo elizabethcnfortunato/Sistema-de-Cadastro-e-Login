@@ -7,8 +7,15 @@
 		<!-- $produtos vem com os dados do controller -->
 		<div class="container">
 		
-		<?= $this->session->flashdata("success")?>
 
+		<?php if($this->session->flashdata("success")):?>
+			<p class = "alert alert-success"><?= $this->session->flashdata("success")?></p>
+		<?php endif ?>
+		
+		<?php if($this->session->flashdata("danger")):?>
+			<p class = "alert alert-danger"><?= $this->session->flashdata("danger")?></p>
+		<?php endif ?>
+		
 			<h1>Produtos</h1>
 			
 			<table class = "table">

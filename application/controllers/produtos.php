@@ -28,15 +28,12 @@ class Produtos extends CI_Controller{
 	}
 
 	public function formulario(){
-		$usuarioLogado = $this->session->userdata("usuario_logado");
-		if(!$usuarioLogado){
-			$this->session->set_flashdata("danger","Você precisa se logar");
-			redirect("/");
-		}
+		autoriza();
 		$this->load->view("produtos/formulario");
 	}
 
 	public function novo(){
+		autoriza();
 	
 		$this->load->library("form_validation");
 		$this->form_validation->set_rules("nome","nome","required|min_length[5]|callback_nao_tenho_palavra_melhor");

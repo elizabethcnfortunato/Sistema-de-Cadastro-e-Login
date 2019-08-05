@@ -16,7 +16,7 @@ class Login extends CI_Controller{
 		}else{
 			//sessão temporária
 			$msg = "<div class='alert alert-danger'> Senha ou Usuário incorreto. Por favor tente novamente.</div>";
-			$this->session->set_flashdata("success", $msg);
+			$this->session->set_flashdata("danger", $msg);
 		}
 
 		//redirecionamento de página, para a index.

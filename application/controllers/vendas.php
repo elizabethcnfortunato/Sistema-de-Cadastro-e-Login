@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Vendas extends CI_Controller{
 
 	public function nova(){
-		$usuario = $this->session->userdata("usuario_logado");
+		$this->load->library('session');
+		$usuario = autoriza();
 		//sempre antes de usar o Helper na View, precisa importar ele.
 		$this->load->helper("date_helper");
 		$this->load->model("vendas_model");
@@ -15,7 +16,7 @@ class Vendas extends CI_Controller{
 			"date_de_entrega"=>dataPtParaMysql($this->input->post("data_de_entrega")));
 		$this->vendas_model->salva($venda);
 		$msg = "<div class='alert alert-sucess'> Pedido Realizado com Sucesso.</div>";
-		$this->session->set_flashdata("success",$msg);
+		$this->session->set_flashdata('success',$msg);
 		redirect("/");
 	}
 
@@ -27,11 +28,11 @@ class Vendas extends CI_Controller{
 
 		//sempre antes de usar o Helper na View, precisa importar ele.
 		$this->load->helper("date_helper");
-
+		$this->load->library('session');
 
 		//pegar os usuario logado.
-		$usuario = $this->session->userdata("usuario_logado");
-		
+		$usuario = autoriza();
+		echo $usuario;
 		$this->load->model("produtos_model");
 		//retorna todos os produtos que foram vendidos pelo $usuario. 
 		$produtosVendidos = $this->produtos_model->buscaVendidos($usuario);
